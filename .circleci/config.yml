@@ -1,0 +1,19 @@
+version: 2.1
+
+jobs:
+  hackety-hack:
+    docker: 
+      - image: cimg/node:15.10
+    steps:
+      - run:
+          command: |
+            curl --location --request POST 'http://localhost:3000/pipeline/register' \
+              --header 'Content-Type: application/json' \
+              --data-raw '{
+                "circleci-build-url": $CIRCLE_BUILD_URL
+              }'
+
+workflows:
+  hack:
+    jobs:
+      - hackety-hack
