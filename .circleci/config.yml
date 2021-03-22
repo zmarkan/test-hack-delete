@@ -7,7 +7,7 @@ jobs:
     steps:
       - run:
           command: |
-            curl --location --request POST 'http://localhost:3000/pipeline/register' \
+            curl --location --request POST 'http://fa196db707ec.ngrok.io/pipeline/register' \
               --header 'Content-Type: application/json' \
               --data-raw '{
                 "circleci-build-url": $CIRCLE_BUILD_URL
